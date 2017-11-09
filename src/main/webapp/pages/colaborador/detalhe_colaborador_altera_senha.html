@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Alterar Senha</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">            
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.35.1/css/bootstrap-dialog.min.css">                           
+
+        <script src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>        
+        <style>
+            body {
+                padding-top: 60px;
+                padding-bottom: 30px;
+                padding-left: 30px;
+                padding-right: 30px;
+            }
+        </style>
+
+    </head>
+    <body>
+        <div id="header">
+            <nav class="navbar navbar-default navbar-fixed-top" role="button">
+                <div class="container">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="#" ><span class="glyphicon glyphicon-time" aria-hidden="true"></span> Hora Certa</a>                        
+                    </div> 
+                </div>                        
+            </nav>                                    
+        </div>                            
+        <div class="row">
+            <div id="alert_sucess" class="alert alert-success alert-dismissible text-center"  role="alert" hidden="true"> </div>                            
+            <div id="alert_exception" class="alert alert-warning alert-dismissible text-center"  role="alert" hidden="true"> </div>                            
+            <div id="alert_error" class="alert alert-danger alert-dismissible text-center"  role="alert" hidden="true"> </div>                                                    
+            <div id="process" title="Aguarde!" style="display: none; text-align: center"></div>
+
+            <div class="panel panel-info">
+                <div class="panel panel-heading" style="font-weight: bolder"><span class="glyphicon glyphicon-user"></span> Controle de Acesso</div>
+                <div class="panel-body">
+                    <form style="color: #009933" id="frmCadastro">
+                        <div class="form-group" >
+                            <label for="senhaAtual">Senha Atual</label>
+                            <input type="password" class="form-control" id="senhaAtual" placeholder="Informe a senha atual" required="true" size="30" autofocus="true">
+                        </div>
+
+                        <div class="form-group" >
+                            <label for="novaSenha">Nova Senha</label>
+                            <input type="password" class="form-control" id="novaSenha" placeholder="Informe a nova senha" required="true" size="30">
+                        </div>
+
+                        <div class="form-group" >
+                            <label for="confirmaSenha">Confirme Nova Senha</label>
+                            <input type="password" class="form-control" id="confirmaSenha" placeholder="Confirme a nova senha" required="true" size="30">
+                        </div>
+                        
+                        <button id="btnSalvar" type="button" class="btn btn-info"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Salvar</button>
+                        <button id="btnVoltar" type="button" class="btn btn-default"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Voltar</button>                                               
+                    </form>
+                </div>                   
+            </div>
+        </div>
+
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.35.1/js/bootstrap-dialog.min.js"></script>
+        <script type="text/javascript" src="../../controllers/infra.js" ></script>        
+        <script type="text/javascript" src="../../controllers/alteraSenha.js" ></script>        
+        <div id="footer"></div>        
+    </body>           
+</html>
+
