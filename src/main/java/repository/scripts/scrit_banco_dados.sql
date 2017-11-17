@@ -11,6 +11,9 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --PARA LIMPEZA DAS TABELAS
+DELETE FROM `LancamentoPonto`;
+DELETE FROM `LancamentoDivergencia`;
+DELETE FROM `PeriodoSemPonto`;
 DELETE FROM `RegistroPonto`;
 DELETE FROM `TipoDivergencia`;
 DELETE FROM `Frequencia`;
@@ -19,6 +22,9 @@ DELETE FROM `PessoaFoto`;
 DELETE FROM `Usuario`;
 DELETE FROM `Pessoa`;
 -- 
+DROP TABLE `LancamentoPonto`;
+DROP TABLE `LancamentoDivergencia`;
+DROP TABLE `PeriodoSemPonto`;
 DROP TABLE `RegistroPonto`;
 DROP TABLE `TipoDivergencia`; 
 DROP TABLE `Frequencia`;
@@ -142,6 +148,46 @@ ADD CONSTRAINT `RegistroPonto_Frequencia` FOREIGN KEY (`id_frequencia`) REFERENC
 ALTER TABLE `RegistroPonto`
 ADD CONSTRAINT `RegistroPonto_Pessoa` FOREIGN KEY (`id_pessoa`) REFERENCES `Pessoa` (`id`) ON DELETE CASCADE;
 
+-- --
+-- Table structure for table `PeriodoSemPonto`
+--
+CREATE TABLE IF NOT EXISTS `PeriodoSemPonto` (
+    `id` int(11) NOT NULL AUTO_INCREMENT,
+    `data` varchar(10) NOT NULL,
+    `descricao` varchar(70) NOT NULL,
+    `id_pessoa` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
+
+ALTER TABLE `PeriodoSemPonto`
+ADD CONSTRAINT `PeriodoSemPonto_Pessoa` FOREIGN KEY (`id_pessoa`) REFERENCES `Pessoa` (`id`) ON DELETE CASCADE;
+
+-- --
+-- Table structure for table `LancamentoPonto`
+--
+CREATE TABLE IF NOT EXISTS `LancamentoPonto` (
+    `id` int(11) NOT NULL AUTO_INCREMENT,
+    `horaLancamento` int(11) NOT NULL,
+    `id_registroPonto` int(11) NOT NULL,
+    `tipoRegistro` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
+
+ALTER TABLE `LancamentoPonto`
+ADD CONSTRAINT `LancamentoPonto_RegsitroPonto` FOREIGN KEY (`id_registroPonto`) REFERENCES `RegistroPonto` (`id`) ON DELETE CASCADE;
+
+-- --
+-- Table structure for table `LancamentoDivergencia`
+--
+CREATE TABLE IF NOT EXISTS `LancamentoDivergencia` (
+    `id` int(11) NOT NULL AUTO_INCREMENT,
+    `id_registroPonto` int(11) NOT NULL,
+    `descricao` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
+
+ALTER TABLE `LancamentoDivergencia`
+ADD CONSTRAINT `LancamentoDivergencia_RegsitroPonto` FOREIGN KEY (`id_registroPonto`) REFERENCES `RegistroPonto` (`id`) ON DELETE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
