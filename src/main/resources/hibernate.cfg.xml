@@ -4,7 +4,7 @@
   <session-factory>
     <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/horacerta?zeroDateTimeBehavior=convertToNull</property>
+    <property name="hibernate.connection.url">jdbc:mysql://172.30.5.206:3306/horacerta?zeroDateTimeBehavior=convertToNull</property>
     <property name="hibernate.connection.username">horacerta</property>
     <property name="hibernate.connection.password">123Perkons</property>
     <mapping class="model.entity.Pessoa"/>
