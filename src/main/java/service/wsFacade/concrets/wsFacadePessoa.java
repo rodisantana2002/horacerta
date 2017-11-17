@@ -81,7 +81,18 @@ public class wsFacadePessoa extends wsFacadeGeneric<Pessoa>{
         }
         return super.findByFilter(pessoa, predEMail).get(0);             
     }
-    
+
+    @GET
+    @Path("obterbynome/{nome}")
+    @Produces({"application/json"})
+    public List<Pessoa> findByNome(@PathParam("nome") String nome) {
+        Predicate<Pessoa> predName = p -> p.getPrimeiroNome().toLowerCase().contains(nome.toLowerCase()) || p.getSegundoNome().toLowerCase().contains(nome.toLowerCase());
+        Pessoa pessoa = new Pessoa();
+        pessoa.setPrimeiroNome(nome);        
+        pessoa.setSegundoNome(nome);
+        return super.findByFilter(pessoa, predName);
+    }
+        
     @GET
     @Path("list/")
     @Produces({"application/json"})

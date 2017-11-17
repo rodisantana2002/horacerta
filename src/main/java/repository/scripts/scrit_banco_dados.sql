@@ -11,10 +11,12 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --PARA LIMPEZA DAS TABELAS
+-- DELETE FROM `Configuracao`
 -- DELETE FROM `PessoaFoto`;
 -- DELETE FROM `Usuario`;
 -- DELETE FROM `Pessoa`;
 -- 
+DROP TABLE `Configuracao`;
 DROP TABLE `PessoaFoto`;
 DROP TABLE `Usuario`;
 DROP TABLE `Pessoa`;
@@ -73,6 +75,26 @@ CREATE TABLE IF NOT EXISTS `PessoaFoto` (
 
 ALTER TABLE `PessoaFoto`
 ADD CONSTRAINT `PessoFoto_Pessoa` FOREIGN KEY (`pessoa_id`) REFERENCES `Pessoa` (`id`) ON DELETE CASCADE;
+
+-- --
+-- Table structure for table `Configuracao`
+--
+CREATE TABLE IF NOT EXISTS `Configuracao` (
+    `id` int(11) NOT NULL AUTO_INCREMENT,
+    `horaEntrada` int(11) NOT NULL,
+    `horaSaida` int(11) NOT NULL,
+    `intervalo` int(11) NOT NULL,
+    `toleranciaDia` int(11) NOT NULL,
+    `cargaHorariaDia` int(11) NOT NULL,
+    `id_pessoa` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
+
+ALTER TABLE `Configuracao`
+ADD CONSTRAINT `Configuracao_Pessoa` FOREIGN KEY (`id_pessoa`) REFERENCES `Pessoa` (`id`) ON DELETE CASCADE;
+
+
+
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

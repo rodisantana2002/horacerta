@@ -5,8 +5,8 @@
  */
 
 function getPath(){
-    var strCaminho = "http://horacerta-santana2002.rhcloud.com/";    
-   // var strCaminho = "http://localhost:8080/horacerta/";        
+   // var strCaminho = "http://wildfly-horacerta.7e14.starter-us-west-2.openshiftapps.com/";
+    var strCaminho = "http://localhost:8080/horacerta/";        
     return strCaminho;
 }
 

@@ -5,6 +5,7 @@
  */
 package configuracao;
 
+import controlls.controll.concrets.ctrlConfiguracao;
 import helpers.mensagens.clsPSR;
 import helpers.types.clsTrataJSON;
 import java.util.ArrayList;
@@ -25,19 +26,19 @@ public class ctrl_configuracao {
     public static void main(String[] args) {
         // TODO code application logic here
         Pessoa pessoa = new Pessoa();
-        pessoa.setId(20);
+        pessoa.setId(01);
         
         Configuracao configuracao = new Configuracao();
-        configuracao.setId(20);
-        configuracao.setHoraEntrada(50);
+        configuracao.setId(null);
+        configuracao.setHoraEntrada(10);
         configuracao.setHoraSaida(50);
         configuracao.setIntervalo(60);
         configuracao.setToleranciaDia(10);
         configuracao.setPessoa(pessoa);
         configuracao.setCargaHorariaDia(10);
         
-        //ctrlConfiguracao c = new ctrlConfiguracao();
-        //c.salvar(configuracao).forEach(s -> clsPSR.prt(s));
+        ctrlConfiguracao c = new ctrlConfiguracao();
+        c.salvar(configuracao).forEach(s -> clsPSR.prt(s));
         
         //c.obterTodos().forEach(conf -> clsPSR.prt(conf.getPessoa().getPrimeiroNome()));
 

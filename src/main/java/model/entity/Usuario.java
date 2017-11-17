@@ -25,6 +25,7 @@ public class Usuario implements Serializable{
     private String senha;
     private String token;
     private Pessoa pessoa;    
+    private String dtUltAcesso;
 
     public Usuario(){
         pessoa = new Pessoa();
@@ -39,7 +40,7 @@ public class Usuario implements Serializable{
     public void setId(Integer id) {
         this.id = id;
     }
-
+    
     public String getSenha() {
         return senha;
     }
@@ -56,14 +57,21 @@ public class Usuario implements Serializable{
         this.token = token;
     }
 
-
     @OneToOne
-    @JoinColumn(name = "id_pessoa")    
+    @JoinColumn(name = "id_pessoa")
     public Pessoa getPessoa() {
         return pessoa;
     }
 
     public void setPessoa(Pessoa pessoa) {
         this.pessoa = pessoa;
+    }
+
+    public String getDtUltAcesso() {
+        return dtUltAcesso;
+    }
+
+    public void setDtUltAcesso(String dtUltAcesso) {
+        this.dtUltAcesso = dtUltAcesso;
     }
 }

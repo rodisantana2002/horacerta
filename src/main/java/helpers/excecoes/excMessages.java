@@ -33,5 +33,15 @@ public class excMessages {
     public static final Integer STATUS_INTERNAL_SERVER_ERROR = 500;
     public static final Integer STATUS_NOT_IMPLEMENTED = 501;
     public static final Integer STATUS_SERVICE_UNAVAILABLE = 503;
-                 
+    
+    //CRUDS   
+    public static final String STR_DATA_SUMISSAO_MENOR_DATA_PUBLICACAO  = "A Data Submissão deve ser anterior a Data Publicação.";
+    public static final String STR_REG_AUTOR_IGUAL_COAUTOR = "Não é permitido o registro do Autor na relação de Participantes.";
+    public static final String STR_REG_AUTOR_NAO_EXISTE = "O Autor informado não esta cadastrado no sistema.";
+    public static final String STR_REG_DOCUMENTO_NAO_EXISTE = "O Artigo informado não esta cadastrado no sistema.";
+                        
+    //UTILITÁRIOS
+    public static final String STR_EMAIL_SUCESSO = "O email foi enviado com sucesso";    
+    public static final String STR_EMAIL_INSUCESSO = "O email não pode ser enviado";        
+    public static final String STR_EMAIL_NAO_CADASTRADO = "O email informado não esta registrado no sistema.";        
 }

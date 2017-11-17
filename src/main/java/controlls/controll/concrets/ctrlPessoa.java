@@ -44,6 +44,18 @@ public class ctrlPessoa implements Icontroll<Pessoa>{
         return msgs;
     }
 
+    ///metodo personalizado para poder salvar e recuperar a pessoa criada no momento 
+    ///da criação de um novo usuário ---utilizar sommente para essa situação
+    public Pessoa salvarByUser(Pessoa entity) { 
+        Predicate<Pessoa> predEMail = p -> p.getEmail().equalsIgnoreCase(entity.getEmail());
+        List<Pessoa> lstPessoas = ibusiness.listarByFilter(entity, predEMail);
+        
+        if (!lstPessoas.isEmpty()){
+            return (Pessoa) lstPessoas.get(0);
+        }          
+        return (Pessoa) ibusiness.salvar(entity);
+    }    
+    
     @Override
     public Pessoa obter(Integer id) {
         Pessoa p = new Pessoa();

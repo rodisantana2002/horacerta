@@ -5,11 +5,14 @@
  */
 package service.wsFacade.concrets;
 
+import helpers.excecoes.excMessages;
 import java.util.List;
 import java.util.function.Predicate;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -34,7 +37,23 @@ public class wsFacadeUsuario extends wsFacadeGeneric<Usuario>{
     public wsFacadeUsuario(){
         super(new Usuario());
     }
-
+    @PUT
+    @Path("add/")
+    @Consumes({"application/json"})
+    @Override
+    public String create(Usuario entity) {
+        return super.create(entity);
+    }
+    
+    @DELETE
+    @Path("{id}")
+    @Override
+    public String delete(@PathParam("id") Integer id) {
+        Usuario usuario = new Usuario();        
+        usuario.setId(id);
+        return super.delete(usuario);  
+    }
+    
     @POST
     @Path("validar")
     @Produces({"application/json"})
@@ -56,23 +75,18 @@ public class wsFacadeUsuario extends wsFacadeGeneric<Usuario>{
     @Consumes({"application/json"})
     @Secured
     public String alterarSenha(Usuario entity){
-        return super.update(entity);
-    }       
+        String msg = super.update(entity);
+        return msg;
+    }           
     
-    @GET
-    @Path("colaborador/{email}")
-    @Produces({"application/json, application/xml"})
-    public List<Usuario> findByEMail(@PathParam("email") String email) {
-        Predicate<Usuario> predEMail = p -> p.getPessoa().getEmail().startsWith(email);        
-        Usuario usuario = new Usuario();
-        Pessoa pessoa = new Pessoa();
-        pessoa.setEmail(email);
-        usuario.setPessoa(pessoa);
-        return super.findByFilter(usuario, predEMail);             
-    }
-
-    @Override
-    public String delete(Integer entity) {
-        return "Metodo não implementado!";
+    @POST
+    @Path("isusuario")
+    @Consumes({"application/json"})
+    public String isUsuario(Usuario usuario) {
+        Predicate<Usuario> predEMail = p -> p.getPessoa().getEmail().equals(usuario.getPessoa().getEmail());        
+        if(super.findByFilter(usuario, predEMail).isEmpty()){
+            return "0";
+        }
+        return "1";             
     }    
 }

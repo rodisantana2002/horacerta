@@ -40,4 +40,8 @@ public class secAutenticar implements Isecurity<Usuario>{
         //atualiza token na pessoa e retorna 
        return ctrlusuario.atualizarToken(entity);
     }
+    
+    public String enviarSenha(String email){
+        return ctrlusuario.enviarSenha(email);
+    } 
 }

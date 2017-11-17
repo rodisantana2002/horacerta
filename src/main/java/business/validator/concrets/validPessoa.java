@@ -22,20 +22,20 @@ public class validPessoa extends validGeneric<Pessoa>{
         super();
     }
     
-    public void validarCamposObrigatorios(Pessoa entity){
+    public void validarCamposObrigatorios(Pessoa entity){       
         if (entity.getId()!=null && entity.getId()==0){
             getLstMsg().add(excMessages.STR_DADOS_OBRIGATORIOS + " - (" + "Identificador" + ").");                    
         }
-        if (entity.getPrimeiroNome().trim().isEmpty() || entity.getPrimeiroNome()==null){
+        if (entity.getMatricula()==null || entity.getMatricula().trim().isEmpty()){
+            getLstMsg().add(excMessages.STR_DADOS_OBRIGATORIOS + " - (" + "Matricula" + ").");                        
+        }        
+        if (entity.getPrimeiroNome()==null || entity.getPrimeiroNome().trim().isEmpty()){
             getLstMsg().add(excMessages.STR_DADOS_OBRIGATORIOS + " - (" + "Primeiro nome" + ").");            
         }
-        if (entity.getSegundoNome().trim().isEmpty() || entity.getSegundoNome()==null){
+        if (entity.getSegundoNome()==null || entity.getSegundoNome().trim().isEmpty()){
             getLstMsg().add(excMessages.STR_DADOS_OBRIGATORIOS + " - (" + "Segundo nome" + ").");                        
         }
-        if (entity.getMatricula().trim().isEmpty() || entity.getMatricula()==null){
-            getLstMsg().add(excMessages.STR_DADOS_OBRIGATORIOS + " - (" + "Matricula" + ").");                        
-        }
-        if (entity.getEmail().trim().isEmpty() || entity.getEmail()==null){
+        if (entity.getEmail()==null || entity.getEmail().trim().isEmpty()){
             getLstMsg().add(excMessages.STR_DADOS_OBRIGATORIOS + " - (" + "Email" + ").");                        
         }
     }

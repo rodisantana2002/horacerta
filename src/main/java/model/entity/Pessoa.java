@@ -18,13 +18,20 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @Entity
 @XmlRootElement
-public class Pessoa implements Serializable {
+public class Pessoa implements Serializable, Comparable<Pessoa>  {
     private Integer id;
-    private String matricula;
     private String primeiroNome;
     private String segundoNome;
     private String email;
-    
+    private String ddd;
+    private String foneCelular;
+    private String biografia;
+    private String instituicao;
+    private String pais;
+    private String estado;
+    private String cidade;
+    private String matricula;
+        
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)    
     public Integer getId() {
@@ -65,5 +72,76 @@ public class Pessoa implements Serializable {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getDDD() {
+        return ddd;
+    }
+
+    public void setDDD(String ddd) {
+        this.ddd = ddd;
+    }
+
+    public String getFoneCelular() {
+        return foneCelular;
+    }
+
+    public void setFoneCelular(String foneCelular) {
+        this.foneCelular = foneCelular;
+    }
+
+    public String getBiografia() {
+        return biografia;
+    }
+
+    public void setBiografia(String biografia) {
+        this.biografia = biografia;
+    }
+
+    public String getInstituicao() {
+        return instituicao;
+    }
+
+    public void setInstituicao(String instituicao) {
+        this.instituicao = instituicao;
+    }
+
+    public String getPais() {
+        return pais;
+    }
+
+    public void setPais(String pais) {
+        this.pais = pais;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    public String getCidade() {
+        return cidade;
+    }
+
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
+    }
+
+    @Override
+    public String toString(){
+        return primeiroNome + " " + segundoNome;
+    }
+    
+    @Override
+    public int compareTo(Pessoa p) {
+        if(p !=null){
+            return this.toString().compareTo(p.toString());
+        }
+        else{
+            return 0;
+        }        
     }
 }

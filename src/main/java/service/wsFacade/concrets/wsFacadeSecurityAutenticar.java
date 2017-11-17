@@ -53,5 +53,11 @@ public class wsFacadeSecurityAutenticar {
     public void efetuarLogout(Usuario entity){
         autenticar.efetuarLogout(entity);
     }        
-        
+
+    @POST
+    @Path("esquecisenha")
+    @Consumes({"application/json"})
+    public String enviarSenha(Usuario usuario){        
+        return autenticar.enviarSenha(usuario.getPessoa().getEmail());
+    }   
 }

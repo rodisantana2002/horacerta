@@ -1,6 +1,7 @@
 package pessoa;
 
 
+import business.bs.concrets.bsPessoa;
 import business.core.Ibusiness;
 import business.factory.businessFactory;
 import java.util.function.Predicate;
@@ -30,7 +31,7 @@ public class business_pessoa {
         // TODO code application logic here
         try {        
             Pessoa pessoa = new Pessoa();                         
-            pessoa.setId(34);
+            pessoa.setId(null);
             pessoa.setPrimeiroNome("Rui");
             pessoa.setSegundoNome("Salete");
             pessoa.setMatricula("009303");
@@ -39,14 +40,13 @@ public class business_pessoa {
             //bsPessoa bsPessoa = new bsPessoa();
             Ibusiness<Pessoa> bsPessoa = (Ibusiness<Pessoa>) new businessFactory<Pessoa>(pessoa).getBusiness();
             bsPessoa.salvar(pessoa);
-            
-            
-            Predicate<Pessoa> predPessoa = p -> p.getPrimeiroNome().contains("aaa");
-
-            for (Pessoa pessoa1 : bsPessoa.listarByFilter(pessoa, predPessoa)){ 
-                System.out.println("via bs --->" + pessoa1.getPrimeiroNome() + " - " + pessoa1.getSegundoNome());
-            }        
-            System.out.println("--->" + bsPessoa.consultar(pessoa).getPrimeiroNome());
+                        
+//            Predicate<Pessoa> predPessoa = p -> p.getPrimeiroNome().contains("aaa");
+//
+//            for (Pessoa pessoa1 : bsPessoa.listarByFilter(pessoa, predPessoa)){ 
+//                System.out.println("via bs --->" + pessoa1.getPrimeiroNome() + " - " + pessoa1.getSegundoNome());
+//            }        
+//            System.out.println("--->" + bsPessoa.consultar(pessoa).getPrimeiroNome());
         }
         catch (Exception ex){ ex.printStackTrace();}                      
         System.exit(0);
